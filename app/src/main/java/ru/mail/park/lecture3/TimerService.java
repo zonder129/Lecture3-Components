@@ -27,8 +27,8 @@ public class TimerService extends Service {
     public int onStartCommand(final Intent intent, final int flags, final int startId) {
         switch (intent.getAction()) {
             case ACTION_START:
-            int seconds = intent.getIntExtra(EXTRA_SECONDS, 0);
-            startTimer(seconds);
+                int seconds = intent.getIntExtra(EXTRA_SECONDS, 0);
+                startTimer(seconds);
                 break;
             case ACTION_STOP:
                 stopTimer();
