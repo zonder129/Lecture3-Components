@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Lecture3-Components</string>
+    <string name="ok">OK</string>
+    <string name="title_error">ERROR</string>
+    <string name="title_calc">Calculator</string>
+    <string name="oops">Oops</string>
+    <string name="title_timer">Timer</string>
+    <string name="title_intents">Intents</string>
+    <string name="time_hint">Time in seconds</string>
+    <string name="start_timer">Start Timer</string>
+    <string name="stop_timer">Stop Timer</string>
+    <string name="timer_placeholder">%d s</string>
+    <string name="timer_finish_title">FINISHED!</string>
+    <string name="url_hint">Enter URL here</string>
+    <string name="title_open_url">Open URL</string>
+    <string name="battery_level_placeholder">Battery level: %d</string>
+</resources>
