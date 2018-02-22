@@ -18,7 +18,11 @@ public class TimerActivity extends AppCompatActivity {
     private final BroadcastReceiver timerReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(final Context context, final Intent intent) {
-            switch (intent.getAction()) {
+            final String action = intent.getAction();
+            if (action == null) {
+                throw new NullPointerException("Timer action is null");
+            }
+            switch (action) {
                 case TimerService.ACTION_TICK:
                     long seconds = intent.getLongExtra(TimerService.EXTRA_SECONDS, 0L);
                     time.setText(getString(R.string.timer_placeholder, seconds));
@@ -35,7 +39,7 @@ public class TimerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_timer);
 
-        time = (TextView) findViewById(R.id.time);
+        time = findViewById(R.id.time);
 
         findViewById(R.id.start_timer).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,7 +68,7 @@ public class TimerActivity extends AppCompatActivity {
     }
 
     private void startTimer() {
-        final EditText time = (EditText) findViewById(R.id.input);
+        final EditText time = findViewById(R.id.input);
         final int seconds = Integer.parseInt(time.getText().toString());
 
         final Intent intent = new Intent(this, TimerService.class);

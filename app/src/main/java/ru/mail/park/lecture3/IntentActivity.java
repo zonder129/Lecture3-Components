@@ -30,7 +30,7 @@ public class IntentActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intent);
 
-        batteryLevel = (TextView) findViewById(R.id.battery_level);
+        batteryLevel = findViewById(R.id.battery_level);
 
         findViewById(R.id.open).setOnClickListener(new View.OnClickListener() {
             @Override

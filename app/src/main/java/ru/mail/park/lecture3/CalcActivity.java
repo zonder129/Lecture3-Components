@@ -27,11 +27,15 @@ public class CalcActivity extends AppCompatActivity {
         setContentView(R.layout.activity_calc);
 
         final double op1 = getIntent().getDoubleExtra(EXTRA_OPERAND1, Double.NaN);
-        final double op2 = getIntent().getExtras().getDouble(EXTRA_OPERAND2, Double.NaN);
+        final double op2 = getIntent().getDoubleExtra(EXTRA_OPERAND2, Double.NaN);
         final double res;
         boolean ok = true;
 
         final String action = getIntent().getAction();
+        if (action == null) {
+            throw new NullPointerException("No action provided");
+        }
+
         switch (action) {
             case ACTION_ADD:
                 res = op1 + op2;
@@ -51,7 +55,7 @@ public class CalcActivity extends AppCompatActivity {
                 break;
         }
 
-        final TextView text = (TextView) findViewById(R.id.text);
+        final TextView text = findViewById(R.id.text);
 
         if (ok) {
             setResult(RESULT_OK, new Intent().putExtra(EXTRA_RESULT, res));

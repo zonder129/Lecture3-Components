@@ -50,8 +50,8 @@ public class CalcInputActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calc_input);
 
-        operand1 = (EditText) findViewById(R.id.operand1);
-        operand2 = (EditText) findViewById(R.id.operand2);
+        operand1 = findViewById(R.id.operand1);
+        operand2 = findViewById(R.id.operand2);
 
         findViewById(R.id.btn_add).setOnClickListener(operationClick);
         findViewById(R.id.btn_sub).setOnClickListener(operationClick);

@@ -25,7 +25,11 @@ public class TimerService extends Service {
 
     @Override
     public int onStartCommand(final Intent intent, final int flags, final int startId) {
-        switch (intent.getAction()) {
+        final String action = intent.getAction();
+        if (action == null) {
+            throw new NullPointerException("Timer action is null");
+        }
+        switch (action) {
             case ACTION_START:
                 int seconds = intent.getIntExtra(EXTRA_SECONDS, 0);
                 startTimer(seconds);
